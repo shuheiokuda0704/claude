@@ -1,0 +1,66 @@
+/* CSS変数定義 */
+:root {
+    --heading-size: 5rem;
+    --animation-duration: 2s;
+    --gradient-start: #667eea;
+    --gradient-end: #764ba2;
+    --text-color: white;
+    --shadow-color: rgba(0, 0, 0, 0.3);
+}
+
+/* レイアウト: フルスクリーンセンタリング */
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-end) 100%);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+}
+
+/* テキストスタイル: フェードインアニメーション付き */
+.hello-world {
+    font-size: var(--heading-size);
+    font-weight: bold;
+    color: var(--text-color);
+    text-shadow: 2px 2px 4px var(--shadow-color);
+    opacity: 0;
+    animation: fadeIn var(--animation-duration) ease-in forwards;
+    will-change: opacity, transform;
+}
+
+/* アニメーション定義 */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* アクセシビリティ: アニメーション削減設定への対応 */
+@media (prefers-reduced-motion: reduce) {
+    .hello-world {
+        animation: none;
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* レスポンシブデザイン: モバイル対応 */
+@media (max-width: 768px) {
+    .hello-world {
+        font-size: 3rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .hello-world {
+        font-size: 2rem;
+    }
+}

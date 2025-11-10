@@ -1,43 +1,42 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
+    <!-- 文字エンコーディング -->
     <meta charset="UTF-8">
+
+    <!-- ビューポート設定（レスポンシブ対応） -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hello World</title>
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            font-family: Arial, sans-serif;
-        }
 
-        .hello-world {
-            font-size: 5rem;
-            font-weight: bold;
-            color: white;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-            opacity: 0;
-            animation: fadeIn 2s ease-in forwards;
-        }
+    <!-- セキュリティヘッダー -->
+    <!-- CSP: インラインスタイルを許可、スクリプトは無効 -->
+    <meta http-equiv="Content-Security-Policy"
+          content="default-src 'self'; style-src 'self'; script-src 'none'; img-src 'self'; font-src 'self';">
 
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(-20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-    </style>
+    <!-- クリックジャッキング対策 -->
+    <meta http-equiv="X-Frame-Options" content="DENY">
+
+    <!-- MIMEタイプスニッフィング対策 -->
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+
+    <!-- リファラーポリシー -->
+    <meta http-equiv="Referrer-Policy" content="no-referrer">
+
+    <!-- HTTPS強制 -->
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+
+    <!-- ページタイトル -->
+    <title>hello world - Welcome Page</title>
+
+    <!-- ページ説明 -->
+    <meta name="description" content="シンプルなウェルカムページ">
+
+    <!-- 外部スタイルシート -->
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="hello-world">hello world</div>
+    <!-- メインコンテンツ -->
+    <main role="main">
+        <h1 class="hello-world" aria-label="ウェルカムメッセージ">hello world</h1>
+    </main>
 </body>
 </html>
